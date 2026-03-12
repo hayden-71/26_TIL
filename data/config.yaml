@@ -1,0 +1,16 @@
+credentials:
+  usernames:
+    hgd:
+      email: gdhong@mail.com
+      name: 홍길동
+      password: $2b$12$ez6ulopa29th1I655o4fFuBoYpL0lgiQU6s1z10Ckr/6eb.8tpwX2
+      failed_login_attempts: 0
+    lss:
+      email: ssyi@mail.com
+      name: 이순신
+      password: $2b$12$zhnBNu2fQI7HdszitBmbNuwwS.dh0JEyMSjezqzEUtrO3Ei6LGEDa
+      failed_login_attempts: 0
+cookie:
+  expiry_days: 30
+  key: abcd
+  name: myCookie
