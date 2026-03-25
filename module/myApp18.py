@@ -21,7 +21,7 @@ st.write('wide 모드로 설정하면 화면 양옆 여백없이 활용 가능!'
 st.sidebar.title('여기는 사이드바!!')
 
 # 데이터 로드
-df = pd.read_csv('data/train.csv', encoding='euc-kr')
+df = pd.read_csv('data/titanic/train.csv', encoding='utf-8')
 '데이터 출력'
 st.dataframe(df.head())
 ''
