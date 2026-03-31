@@ -1,2 +1,7 @@
 .env
 model/
+
+*.sqlite3
+teamproject/card_base_db/
+teamproject/card_category_db/
+teamproject/card_semantic_db_v3/
