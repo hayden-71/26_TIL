@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>테트리스 — TETRIS</title>
+  <meta name="description" content="모던 테트리스 게임 - 아름다운 글래스모피즘 디자인과 함께 즐기는 클래식 테트리스" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-animation">
+    <div class="bg-block" style="--delay:0s;--x:10%;--size:40px;--color:#a78bfa"></div>
+    <div class="bg-block" style="--delay:2s;--x:25%;--size:25px;--color:#60a5fa"></div>
+    <div class="bg-block" style="--delay:4s;--x:50%;--size:35px;--color:#34d399"></div>
+    <div class="bg-block" style="--delay:1s;--x:70%;--size:20px;--color:#f472b6"></div>
+    <div class="bg-block" style="--delay:3s;--x:85%;--size:30px;--color:#fb923c"></div>
+    <div class="bg-block" style="--delay:5s;--x:40%;--size:15px;--color:#facc15"></div>
+    <div class="bg-block" style="--delay:6s;--x:60%;--size:45px;--color:#a78bfa"></div>
+    <div class="bg-block" style="--delay:1.5s;--x:90%;--size:22px;--color:#60a5fa"></div>
+  </div>
+
+  <div class="container">
+    <!-- Left Panel -->
+    <aside class="panel panel-left">
+      <div class="panel-card">
+        <h3 class="panel-title">NEXT</h3>
+        <div class="next-preview">
+          <canvas id="nextCanvas" width="120" height="120"></canvas>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <h3 class="panel-title">HOLD</h3>
+        <div class="hold-preview">
+          <canvas id="holdCanvas" width="120" height="120"></canvas>
+        </div>
+      </div>
+
+      <div class="panel-card controls-card">
+        <h3 class="panel-title">CONTROLS</h3>
+        <ul class="controls-list">
+          <li><span class="key">←→</span><span>이동</span></li>
+          <li><span class="key">↑</span><span>회전</span></li>
+          <li><span class="key">↓</span><span>소프트 드롭</span></li>
+          <li><span class="key">Space</span><span>하드 드롭</span></li>
+          <li><span class="key">C</span><span>홀드</span></li>
+          <li><span class="key">P</span><span>일시정지</span></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Game Board -->
+    <main class="game-area">
+      <div class="game-header">
+        <h1 class="game-title">TETRIS</h1>
+      </div>
+      <div class="board-wrapper">
+        <canvas id="gameCanvas" width="300" height="600"></canvas>
+        <!-- Overlay screens -->
+        <div class="overlay" id="startOverlay">
+          <div class="overlay-content">
+            <div class="overlay-icon">🎮</div>
+            <h2>TETRIS</h2>
+            <p>클래식 블록 퍼즐 게임</p>
+            <button class="btn-primary" id="startBtn">게임 시작</button>
+          </div>
+        </div>
+        <div class="overlay hidden" id="pauseOverlay">
+          <div class="overlay-content">
+            <div class="overlay-icon">⏸</div>
+            <h2>일시정지</h2>
+            <button class="btn-primary" id="resumeBtn">계속하기</button>
+          </div>
+        </div>
+        <div class="overlay hidden" id="gameOverOverlay">
+          <div class="overlay-content">
+            <div class="overlay-icon">💀</div>
+            <h2>GAME OVER</h2>
+            <p id="finalScore">점수: 0</p>
+            <button class="btn-primary" id="restartBtn">다시 시작</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Panel -->
+    <aside class="panel panel-right">
+      <div class="panel-card score-card">
+        <h3 class="panel-title">SCORE</h3>
+        <div class="score-value" id="scoreDisplay">0</div>
+      </div>
+      <div class="panel-card">
+        <h3 class="panel-title">BEST</h3>
+        <div class="score-value best" id="bestDisplay">0</div>
+      </div>
+      <div class="panel-card">
+        <h3 class="panel-title">LEVEL</h3>
+        <div class="score-value level" id="levelDisplay">1</div>
+      </div>
+      <div class="panel-card">
+        <h3 class="panel-title">LINES</h3>
+        <div class="score-value lines" id="linesDisplay">0</div>
+      </div>
+      <div class="panel-card">
+        <div class="level-bar-label">
+          <span>다음 레벨</span>
+          <span id="linesLeft">10</span>
+        </div>
+        <div class="level-bar-track">
+          <div class="level-bar-fill" id="levelBar"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="tetris.js"></script>
+</body>
+</html>

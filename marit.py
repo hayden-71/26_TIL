@@ -21,46 +21,19 @@ st.title("🐾 반려동물 HOT 여행 추천")
 st.subheader("마이리얼트립 실시간 데이터를 AI가 분석합니다.")
 
 
-# 1. API 설정
-API_KEY = "qtocW6E4R9JEU979qpwwigbCzjm1UMKiTxVYIQYiMZ7uOcoClqWvHhwCvWvQOPtp"
-BASE_URL = "https://partner-ext-api.myrealtrip.com"
-ENDPOINT = "/v1/products/flight/calendar"
-
-# 2. 요청 헤더 설정
-headers = {
-    "Authorization": f"Bearer {API_KEY}",
-    "Content-Type": "application/json"
-}
-
-# 3. 요청 바디(파라미터) 설정 - 명세서의 필수값 기반
-payload = {
-    "startDate": "2026-04-14",  # 조회 시작일
-    "endDate": "2026-04-20",    # 조회 종료일
-    "depCityCd": "ICN",         # 출발 도시 (인천)
-    "arrCityCd": "BKK",         # 도착 도시 (방콕)
-    "period": 5                 # 체류 기간 (5일)
-}
-
-# 4. POST 요청 실행
-response = requests.post(
-    f"{BASE_URL}{ENDPOINT}",
-    headers=headers,
-    json=payload
-)
-
-# 5. 결과 확인
-print(f"Status Code: {response.status_code}")
-
-if response.status_code == 200:
-    print("성공 데이터:")
-    print(response.json())
-else:
-    print(f"에러 발생: {response.text}")
-
-
 def get_marit_data():
-    # url = "https://partner-ext-api.myrealtrip.com/v1/products"
-    # headers = {"Authorization": f"Bearer {MARIT_API_KEY}"}
+    url = "https://partner-ext-api.myrealtrip.com/v1/products"
+    headers = {"Authorization": f"Bearer {MARIT_API_KEY}"}
+
+    # 3. 요청 바디(파라미터) 설정 - 명세서의 필수값 기반
+    payload = {
+        "startDate": "2026-04-14",  # 조회 시작일
+        "endDate": "2026-04-20",  # 조회 종료일
+        "depCityCd": "ICN",  # 출발 도시 (인천)
+        "arrCityCd": "BKK",  # 도착 도시 (방콕)
+        "period": 5,  # 체류 기간 (5일)
+    }
+
     # params = {"keyword": "일본"}
 
     # response = requests.get(url, headers=headers, params=params)
